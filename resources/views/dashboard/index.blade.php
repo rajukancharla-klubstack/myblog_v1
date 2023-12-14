@@ -2,24 +2,24 @@
 
 @section('content')
 <div class="container">
-    <h1>Dashboard</h1>
+    <h1 class="mt-4">Dashboard</h1>
 
     @auth
-    <p>Welcome, {{ Auth::user()->name }}!</p>
+    <p class="lead">Welcome, {{ Auth::user()->name }}!</p>
     @endauth
 
-    <h2>All Posts</h2>
+    <h2 class="mt-4">All Posts</h2>
 
     @forelse($posts as $post)
-    <div class="card mb-3">
-        <img src="{{ $post->image }}" class="card-img-top" alt="Post Image" style="max-width: 1080px; max-height: 1080px;">
+    <div class="card mb-4">
+        <img src="{{ $post->image }}" class="card-img-top" alt="Post Image" style="max-width: 100%; height: auto;">
         <div class="card-body">
             <h5 class="card-title">{{ $post->title }}</h5>
             <p class="card-text">{{ $post->content }}</p>
-            <p class="card-text">Author: {{ $post->user->name }}</p>
+            <p class="card-text"><strong>Author:</strong> {{ $post->user->name }}</p>
 
             {{-- Display likes count --}}
-            <p class="card-text">Likes: {{ $post->likes->count() }}</p>
+            <p class="card-text"><strong>Likes:</strong> {{ $post->likes->count() }}</p>
 
             <div class="row">
                 <div class="col-md-6">
@@ -43,16 +43,16 @@
             </div>
 
             {{-- Display comments --}}
-            <h4>Comments</h4>
+            <h4 class="mt-3">Comments</h4>
             @forelse($post->comments as $comment)
-            <p>{{ $comment->content }} - {{ $comment->user->name }}</p>
+            <p class="mb-1">{{ $comment->content }} - <strong>{{ $comment->user->name }}</strong></p>
             @empty
-            <p>No comments yet.</p>
+            <p class="mb-1">No comments yet.</p>
             @endforelse
         </div>
     </div>
     @empty
-    <p>No posts found.</p>
+    <p class="lead">No posts found.</p>
     @endforelse
 </div>
 @endsection
