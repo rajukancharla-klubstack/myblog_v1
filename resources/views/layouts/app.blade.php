@@ -63,21 +63,18 @@
 <body>
 
     <nav class="navbar navbar-expand-md navbar-dark fixed-top">
-        <a class="navbar-brand" href="{{ url('/') }}">Blog App</a>
+        <a class="navbar-brand" href="{{ route('dashboard.index') }}">Blog App</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="{{ url('/') }}">Home</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('dashboard.index') }}">Dashboard</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('dashboard') }}">Dashboard</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('users.index') }}">Users</a>
+                    <a class="nav-link" href="{{ route('posts.create') }}">Create Post</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('users.create') }}">Create User</a>

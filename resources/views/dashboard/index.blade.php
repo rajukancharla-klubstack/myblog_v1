@@ -12,7 +12,7 @@
 
     @forelse($posts as $post)
     <div class="card mb-4">
-        <img src="{{ $post->image }}" class="card-img-top" alt="Post Image" style="max-width: 100%; height: auto;">
+        <img src="{{ asset('storage/' . $post->image) }}" class="card-img-top" alt="Post Image" style="max-width: 100%; height: auto;">
         <div class="card-body">
             <h5 class="card-title">{{ $post->title }}</h5>
             <p class="card-text">{{ $post->content }}</p>

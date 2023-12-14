@@ -78,7 +78,7 @@ class UserController extends Controller
         $user = User::find($id);
         $user->delete();
 
-        return redirect()->route('users.index')->with('success', 'User deleted successfully.');
+        return redirect()->route('dashboard.index')->with('success', 'User deleted successfully.');
     }
 
     public function loginForm()
@@ -91,7 +91,7 @@ class UserController extends Controller
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
-            return redirect()->route('users.index')->with('success', 'Login successful.');
+            return redirect()->route('dashboard.index')->with('success', 'Login successful.');
         }
 
         return back()->withErrors(['email' => 'Invalid credentials'])->withInput();
@@ -100,6 +100,6 @@ class UserController extends Controller
     public function logout()
     {
         Auth::logout();
-        return redirect()->route('users.index')->with('success', 'Logged out successfully.');
+        return redirect()->route('dashboard.index')->with('success', 'Logged out successfully.');
     }
 }

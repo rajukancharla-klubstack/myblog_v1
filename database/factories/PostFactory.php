@@ -15,11 +15,13 @@ class PostFactory extends Factory
 
     public function definition()
     {
+        $imagePath = 'post_images/' . $this->faker->image('public/storage/post_images', 640, 480, null, false);
+
         return [
             'user_id' => User::factory(),
             'title' => $this->faker->sentence,
             'content' => $this->faker->paragraph,
-            'image' => $this->faker->imageUrl(),
+            'image' => $imagePath,
         ];
     }
 }
