@@ -36,6 +36,9 @@ Route::get('/login', [UserController::class, 'loginForm'])->name('login');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
+    Route::get('/posts/{post}/edit', [PostController::class, 'edit'])->name('posts.edit');
+    Route::put('/posts/{post}', [PostController::class, 'update'])->name('posts.update');
+
 
     Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');

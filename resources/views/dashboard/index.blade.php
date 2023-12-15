@@ -21,6 +21,11 @@
             {{-- Display likes count --}}
             <p class="card-text"><strong>Likes:</strong> {{ $post->likes->count() }}</p>
 
+            {{-- Add conditional for Edit Post --}}
+            @if (Auth::check() && Auth::user()->id === $post->user_id)
+            <a href="{{ route('posts.edit', $post) }}" class="btn btn-primary">Edit Post</a>
+            @endif
+
             <div class="row">
                 <div class="col-md-6">
                     <form method="post" action="{{ route('comments.store') }}">
