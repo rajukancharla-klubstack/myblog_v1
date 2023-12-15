@@ -12,7 +12,7 @@ class PostController extends Controller
         $request->validate([
             'title' => 'required|max:255',
             'content' => 'required',
-            'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Adjust validation rules
+            'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
         $imagePath = null;
