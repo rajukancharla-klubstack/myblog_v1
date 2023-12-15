@@ -12,7 +12,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $apiUrl = config('services.external_api.url'); // Assuming you store the API URL in the configuration
+        $apiUrl = config('services.external_api.url');
 
         $this->app->bind(ApiService::class, function ($app) use ($apiUrl) {
             return new ApiService($apiUrl);
